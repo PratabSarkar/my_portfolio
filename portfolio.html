@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Pratab's Portfolio</title>
+    <style>
+        body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-align: center;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #ed0d0d;
+            border-radius: 5px;
+        }
+
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        #home {
+            background: rgb(91, 128, 129);
+            color: rgb(7, 3, 3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .home-content .btn {
+            background-color: white;
+            color: #111302;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .home-content .btn:hover {
+            background-color: #eb1414;
+            color: white;
+        }
+
+        #skills {
+            background-color: rgb(125, 175, 181);
+            margin-top: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #050501;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            background-color: #e9b2b2;
+            padding: 20px;
+            width: 200px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .skill i {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #0e0d05;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .about-content img {
+            border-radius: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 770px;
+        }
+
+        #projects {
+            background-color: rgb(79, 225, 227);
+            padding: 40px 20px;
+        }
+
+        .projects-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .project-card .btn {
+            background-color: rgb(239, 31, 20);
+            color: black;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .project-card .btn:hover {
+            background-color: #ff9900;
+        }
+
+        #contact {
+            background-color: rgb(91, 128, 129);
+            padding: 40px 20px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        form label {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: rgb(239, 31, 20);
+            border: none;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        form button:hover {
+            background-color: #ff9900;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer .social-icons {
+            margin-top: 10px;
+        }
+
+        footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        footer .social-icons a:hover {
+            color: #ffcc00;
+        }
+      
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">MyPortfolio</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="home-content">
+            <h1><u><h1>Welcome to My Portfolio</h1></u></h1>
+            <p><h3>Hello everyone! I am an Computer Engineer, I specialize in developing innovative solutions that bridge the gap between technology and real-world challenges. With a strong foundation in programming and a commitment to continuous learning, I strive to create impactful digital experiences and drive technological advancements.</h3></p>
+            <p>
+            Thank you for visiting my portfolio. This space reflects my journey as a student, showcasing the skills and knowledge I have acquired through various projects and experiences. Each piece represents a step forward in my learning process, driven by curiosity and a passion for growth. I hope you find my skills and my work also. Your feedback is always welcome, as it helps me improve and continue to evolve in my academic and creative pursuits.
+            </p>
+            
+            <a href="#skills" class="btn">View My skills</a>
+            <a href="#about" class="btn">View about me</a>
+            <a href="#projects" class="btn">View My projects</a>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2><u>My Skills</u></h2>
+        <div class="skills-container">
+            <div class="skill">
+                <i class="fab fa-html5"></i>
+                <h3>HTML</h3>
+                <p>Advanced knowledge of HTML.</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS</h3>
+                <p>Experienced in modern CSS techniques.</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+                <p>Intermediate of Java programming.</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <p>Solid understanding of Python programming.</p>
+            </div>    
+            <div class="skill">
+                <i class="fas fa-database"></i>
+                <h3>DBMS</h3>
+                <p>Skilled in database management system.</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-django"></i>
+                <h3>Django</h3>
+                <p>I have experience with Django, building web applications that are efficient, scalable, and user-friendly.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-DSA"></i>
+                <h3>DSA</h3>
+                <p>I have a solid understanding of data structures and algorithms, which helps me solving for various programming challenges.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-OOPs"></i>
+                <h3>OOPs</h3>
+                <p>I understand object-oriented programming, which helps me create organized and reusable code using concepts.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-web development"></i>
+                <h3>Full Stack Web development</h3>
+                <p>I’m skilled in full-stack web development, which helps me handle both front-end and back-end tasks to create web applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section">
+        <h2><u>About Me</u></h2>
+        <div class="about-content">
+            <img src="Image.jpg" alt="About Me Picture">
+            <p>
+            <h4>
+                Hello everyone! Welcome to my portfolio, I'm Pratab Chandra Sarkar. I reside in Islampur, Uttar Dinajpur, West Bengal, India. I am currently pursuing a degree in Computer Science and Engineering with a focus on Artificial Intelligence and Machine Learning at Future Institute of Technology. My academic journey is driven by a passion for technology and innovation. Beyond my studies, I enjoy playing cricket and badminton, and I find joy in singing songs. These hobbies keep me balanced and inspired as I work towards my goals in the tech field.
+            </h4>
+            </p>
+            <p>I am a dedicated Computer Engineer with a strong foundation in both hardware and software development. My journey in technology has been driven by a relentless curiosity and a desire to create innovative solutions that make a meaningful impact.
+            </p>
+            <p>
+            I hold a Bachelor’s degree in Computer Science and Engineering in Artificial Intelligence and Machine Learning from Future Institute of technology. My academic experience has equipped me with a deep understanding of computer science, algorithms, data structures, and software development methodologies. Courses such as Embedded Systems, Machine Learning, Artificial Intelligence and Computer Network, etc have been instrumental in shaping my technical expertise.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2><u>My Projects</u></h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="project1.jpg" alt="Project 1">
+                <h3>Project One</h3>
+                <p>Translator Application using Python.</p>
+                <a href="https://github.com/PratabSarkar/python_project1/blob/main/translator.py" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="project2.jpg" alt="Project 2">
+                <h3>Project Two</h3>
+                <p>Chatbot Application using Python.</p>
+                <a href="https://github.com/PratabSarkar/python_project1/blob/main/chatbot.py" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="project3.jpg" alt="Project 3">
+                <h3>Project Three</h3>
+                <p>Jarvis Application using Python.</p>
+                <a href="https://github.com/PratabSarkar/python_project1/blob/main/jarvis.py" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="project4.jpg" alt="Project 4">
+                <h3>Project four</h3>
+                <p>A brief description of the project.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="project5.jpg" alt="Project 5">
+                <h3>Project Five</h3>
+                <p>A brief description of the project.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="project6.jpg" alt="Project 6">
+                <h3>Project Six</h3>
+                <p>A brief description of the project.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2><u>Contact Me</u></h2>
+        <form id="contact-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Id:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone No.:</label>
+            <input type="phone" id="phone" name="phone" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><h1>Find me on this web sites or Platforms.</h1></p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/pratab-sarkar"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/PratabSarkar"><i class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/protap.sarkar.5477"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/pratabsarkar.72/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@itzpratab7232"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Contact Form Validation
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let message = document.getElementById('message').value;
+            if (name && email && message) {
+                alert('Thank you for your message!');
+                this.reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+  
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
